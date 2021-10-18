@@ -1,4 +1,4 @@
-package com.example.AEPB.exception;
+package com.example.AEPB.aircoin.exception;
 
 public class AmountOutOfRangeException extends RuntimeException {
 }

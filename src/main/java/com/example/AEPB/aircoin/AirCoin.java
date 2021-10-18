@@ -1,7 +1,7 @@
-package com.example.AEPB;
+package com.example.AEPB.aircoin;
 
-import com.example.AEPB.exception.AmountOutOfRangeException;
-import com.example.AEPB.exception.CannotCompareException;
+import com.example.AEPB.aircoin.exception.AmountOutOfRangeException;
+import com.example.AEPB.aircoin.exception.CannotCompareException;
 
 public class AirCoin {
 
