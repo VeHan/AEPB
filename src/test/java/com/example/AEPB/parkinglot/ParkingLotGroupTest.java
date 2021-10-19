@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ParkingLotGroupTest {
 
-    private Method getParkingLotNumberByTicket = ReflectionUtils.getRequiredMethod(ParkingLotGroup.class, "getParkingLotNumberByTicket", Ticket.class);
+    private Method getParkingLotNumberByTicket = ReflectionUtils.getRequiredMethod(ParkingBoy.class, "getParkingLotNumberByTicket", Ticket.class);
 
     @Test
     void should_return_ticket_when_parking_by_boy_given_all_parking_lot_is_empty() {
@@ -42,7 +42,7 @@ class ParkingLotGroupTest {
 
         // then
         assertNotNull(ticket);
-        assertEquals(2, ReflectionUtils.invokeMethod(getParkingLotNumberByTicket, parkingLotGroup, ticket));
+        assertEquals(1, ReflectionUtils.invokeMethod(getParkingLotNumberByTicket, parkingLotGroup.getParkingBoy(), ticket));
     }
 
     @Test
