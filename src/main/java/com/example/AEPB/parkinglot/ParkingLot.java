@@ -19,7 +19,7 @@ public class ParkingLot {
         tickets = new LinkedList<>();
         ticketCarMap = new HashMap<>();
         for (int i = 0; i < COUNT_OF_PARKING_SPACES; i++) {
-            tickets.add(new Ticket(i + 1));
+            tickets.add(new Ticket());
         }
     }
 

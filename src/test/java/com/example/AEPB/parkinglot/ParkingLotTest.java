@@ -4,7 +4,6 @@ import com.example.AEPB.parkinglot.exception.NoCarMatchedFoundException;
 import com.example.AEPB.parkinglot.exception.NoFreeParkingSpaceException;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -15,7 +14,7 @@ class ParkingLotTest {
         // given
         ParkingLot parkingLot = new ParkingLot();
         // when
-        Ticket ticket = parkingLot.parking(new Car("car"));
+        Ticket ticket = parkingLot.parking(new Car());
         // then
         assertNotNull(ticket);
     }
@@ -25,12 +24,11 @@ class ParkingLotTest {
     void should_pickup_success_when_pickup_given_parking_lot_has_the_car() {
         // given
         ParkingLot parkingLot = new ParkingLot();
-        Ticket ticket = parkingLot.parking(new Car("car"));
+        Ticket ticket = parkingLot.parking(new Car());
         // when
         Car car = parkingLot.pickUp(ticket);
         // then
         assertNotNull(car);
-        assertEquals("car", car.getNumberPlate());
     }
 
 
@@ -39,11 +37,11 @@ class ParkingLotTest {
         // given
         ParkingLot parkingLot = new ParkingLot();
         for (int i = 0; i < 50; i++) {
-            parkingLot.parking(new Car(String.format("car_%s", i)));
+            parkingLot.parking(new Car());
         }
         // when
         // then
-        assertThrows(NoFreeParkingSpaceException.class, () -> parkingLot.parking(new Car("car")));
+        assertThrows(NoFreeParkingSpaceException.class, () -> parkingLot.parking(new Car()));
     }
 
     @Test
@@ -52,14 +50,14 @@ class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot();
         // when
         // then
-        assertThrows(NoCarMatchedFoundException.class, () -> parkingLot.pickUp(new Ticket(1)));
+        assertThrows(NoCarMatchedFoundException.class, () -> parkingLot.pickUp(new Ticket()));
     }
 
     @Test
     void should_throw_NoCarMatchedFoundException_when_pickup_multiple_given_parking_has_the_car() {
         // given
         ParkingLot parkingLot = new ParkingLot();
-        Ticket ticket = parkingLot.parking(new Car("car"));
+        Ticket ticket = parkingLot.parking(new Car());
         // when
         // then
         parkingLot.pickUp(ticket);
