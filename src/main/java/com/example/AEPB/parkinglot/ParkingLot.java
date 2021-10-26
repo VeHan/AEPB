@@ -12,9 +12,14 @@ public class ParkingLot {
 
     private final LinkedList<Ticket> tickets;
     private final Map<Ticket, Car> ticketCarMap;
+    private final int parkingSpaceCount;
 
 
     public ParkingLot(int parkingSpaceCount) {
+        if (parkingSpaceCount <= 0 || parkingSpaceCount >= 100000) {
+            throw new IllegalArgumentException("parkingSpaceCount should be 0-100000");
+        }
+        this.parkingSpaceCount = parkingSpaceCount;
         tickets = new LinkedList<>();
         ticketCarMap = new HashMap<>();
         for (int i = 0; i < parkingSpaceCount; i++) {
@@ -40,8 +45,12 @@ public class ParkingLot {
         return car;
     }
 
-    protected int getSpaceCount(){
+    protected int getSpaceCount() {
         return tickets.size();
+    }
+
+    protected float getVacancyRate() {
+        return tickets.size() / (float) this.parkingSpaceCount;
     }
 
 }
