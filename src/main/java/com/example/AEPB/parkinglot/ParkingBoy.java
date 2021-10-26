@@ -8,15 +8,15 @@ import java.util.List;
 import java.util.Map;
 
 public class ParkingBoy {
-    private List<ParkingLot> parkingLots;
+    protected List<ParkingLot> parkingLots;
 
-    private Map<Ticket, ParkingLot> ticketParkingLotMap = new HashMap<>();
+    protected Map<Ticket, ParkingLot> ticketParkingLotMap = new HashMap<>();
 
     ParkingBoy(List<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
     }
 
-    private int getParkingLotNumberByTicket(Ticket ticket) {
+    protected int getParkingLotNumberByTicket(Ticket ticket) {
         return parkingLots.indexOf(ticketParkingLotMap.get(ticket));
     }
 

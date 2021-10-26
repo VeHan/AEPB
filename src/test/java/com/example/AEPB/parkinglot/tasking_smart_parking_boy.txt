@@ -1,0 +1,23 @@
+given 10个停车场，都是空的，一辆车，一个smart boy
+when smart boy去停车
+then 停车成功拿到票
+
+given 10个停车场，空位剩余数分别是1...10，一辆车，一个smart boy
+when smart boy去停车
+then 停车成功到10号停车场拿到票
+
+given 10个停车场，空位剩余数分别是1...10， 10，一辆车，一个smart boy
+when smart boy去停车
+then 停车成功到9号停车场拿到票
+
+given 10个停车场，都停满，一辆车，一个smart boy
+when smart boy去停车
+then 停不了车
+
+given 10个停车场，一张停车票，一个smart boy
+when smart boy去取车
+then 可以取到车
+
+given 10个停车场，一张已经取过车的停车票，一个smart boy
+when smart boy去取车
+then 不可以取到车

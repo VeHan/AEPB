@@ -10,15 +10,14 @@ import java.util.Map;
 
 public class ParkingLot {
 
-    private static final int COUNT_OF_PARKING_SPACES = 50;
     private final LinkedList<Ticket> tickets;
     private final Map<Ticket, Car> ticketCarMap;
 
 
-    public ParkingLot() {
+    public ParkingLot(int parkingSpaceCount) {
         tickets = new LinkedList<>();
         ticketCarMap = new HashMap<>();
-        for (int i = 0; i < COUNT_OF_PARKING_SPACES; i++) {
+        for (int i = 0; i < parkingSpaceCount; i++) {
             tickets.add(new Ticket());
         }
     }
@@ -39,6 +38,10 @@ public class ParkingLot {
         }
         tickets.add(ticket);
         return car;
+    }
+
+    protected int getSpaceCount(){
+        return tickets.size();
     }
 
 }
